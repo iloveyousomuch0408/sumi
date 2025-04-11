@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/views/layout.jsp">
+    	<put-attribute name="title" value="happy rent car"/>
+    	<put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
+    	<put-attribute name="contents" value=""/>
+    	<put-attribute name="footer" value="/WEB-INF/views/footer.jsp"/>
+	</definition>
+   
+   <definition name="main" extends="baseLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/main.jsp"/>
+   </definition> 
+   
+   <!-- *** Auth *** -->
+   <!-- 로그인 -->
+   <definition name="login" extends="baseLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/auth/login.jsp"/>
+   </definition> 
+   <!-- 회원가입 -->
+   <definition name="join" extends="baseLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/auth/join.jsp"/>
+   </definition> 
+   <!-- 사이드메뉴바 -->
+   <definition name="sidemenuinput" extends="baseLayout">
+		<put-attribute name="contents" value="/WEB-INF/views/sidemenu/sidemenuinput.jsp"/>
+   </definition> 
+   
+   
+   
+   
+</tiles-definitions>
+
