@@ -13,6 +13,13 @@ public class HomeController {
 		
 		return "main";
 	}
+	
+	@RequestMapping(value = "/main")  // ← 이거 추가!
+	public String goMain() {
+		return "main";  // /WEB-INF/views/main.jsp를 렌더링
+	}
+	
+	
 	@RequestMapping(value = "header")
 	public String home2() 
 	{

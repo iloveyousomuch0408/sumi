@@ -23,21 +23,27 @@
 <meta property="og:type" content="website">
 
 <title><t:insertAttribute name="title" /></title>
-<%@ include file="./style.jsp" %>
-<%@ include file="./scripts.jsp" %>	
+
+<!-- bootstrap style -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Pretendard 서체-->
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<!-- 공통 스타일 -->
+<link rel="stylesheet" href="./resources/styles/common.css?v=12">
+
+<!-- jQuery -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<!-- bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
-	<div class="container">
-		<header class="header">
-			<t:insertAttribute name="header" />
-		</header>
-		<main class="contents">
-			<t:insertAttribute name="contents" />
-		</main>
-		<footer class="footer">
-			<t:insertAttribute name="footer" />
-		</footer>
-	</div>
+<div class="container">
+<t:insertAttribute name="header" />
+<main class="contents">
+<t:insertAttribute name="contents" />
+</main>
+<t:insertAttribute name="footer" />
+</div>
 </body>
 </html>

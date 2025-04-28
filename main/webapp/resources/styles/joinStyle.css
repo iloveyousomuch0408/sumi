@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+.join-container {
+	width: 80%;
+	margin: 150px auto;
+	text-align: center;
+}
+.join-list {
+	margin: 40px 0;
+}
+.join-list input {
+	border: 1px solid #000;
+	border-radius: 5px;
+	width: 100%; height: 44px;
+	padding: 0 14px;
+	margin: 4px 0 14px;
+}
+.join-list .gender-list {
+	display: flex;
+}
+.join-list .gender-list li {
+	width: 100%;
+	margin: 4px 0 14px;
+}
+.join-list .gender-list li label {
+	border: 1px solid #000;
+	border-right: none;
+	cursor: pointer;
+	padding: 6px 14px;
+	width: 100%;
+	
+}
+.join-list .gender-list li:first-child label {
+	border-radius: 5px 0 0 5px;
+}
+.join-list .gender-list li:last-child label {
+	border-right: 1px solid #000;
+	border-radius: 0 5px 5px 0;
+}
+.join-list .gender-list li label {
+	text-align: center;
+}
+
+.join-list .blind {
+	display:none;
+	position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.error-message {
+	color: red;
+	font-size: 12px;
+	margin-top: 5px;
+	display: none;
+}

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-.menu {
+    .menu {
       max-width: 420px;
       margin: 0 auto;
       padding: 10px;
@@ -29,8 +29,8 @@
       padding: 15px 0;
       font-size: 15px;
       color: #000;
-    }
-
+    }   
+    
     .menu li.thick-top {
       border-top: 2px solid #333;
       margin-top: 10px;
@@ -41,9 +41,16 @@
     }
 
     .menu li.active {
-      color: red;
+     color: red;
     }
-
+    .menu li:hover {
+    color: #e42025;
+    }     
+     .menu a::selection {
+     background: #ffcccc;    
+     color: #111111;            
+     }
+    
     .section-title {
       font-size: 16px;
       font-weight: bold;
@@ -154,6 +161,7 @@
       font-weight: 500;
       margin-right: 6px;
     }
+
   </style>
 </head>
 <body>
@@ -164,9 +172,9 @@
 
     <!-- 메뉴 리스트 -->
     <ul>
-      <li class="thick-top">렌트카 예약</li>
-      <li>카시트/유모차 예약</li>
-      <li>이벤트</li>
+      <li><a href="booking">렌트카 예약</a></li>
+      <li><a href="cardetail">카시트/유모차 예약</a></li>
+      <li><a href="eventinput">이벤트</a></li>
       <li>오시는길</li>
       <li>REVIEW</li>
       <li>SNS</li>
@@ -182,7 +190,7 @@
       <table>
         <tr>
           <td>Q&amp;A</td>
-          <td style="color: red;">장기렌트카 문의</td>
+          <td>장기렌트카 문의</td>
         </tr>
         <tr>
           <td>자주 묻는 질문</td>

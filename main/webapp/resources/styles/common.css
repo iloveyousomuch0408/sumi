@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/*** global ***/
+audio, canvas, embed, iframe, img, object, video {
+	display: block;
+	vertical-align: middle;
+}
+svg {
+	display: inline-block;
+	vertical-align: middle;
+}
+button, input, select, textarea {
+	border-radius: 0;
+    border: none;
+    background: 0 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-text-size-adjust: none;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+ul, ol {
+	list-style: none;
+	margin:0; padding: 0;
+}
+
+input, button {
+	outline: none;
+}
+
+body {
+	/* 임시 */
+	border: 2px solid #000;
+	
+	
+	font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+	font-size: 16px;
+	color: #222;
+	line-height: 1.6;
+	
+	width: 430px; height:932px;
+	margin:10px auto;
+}
+
+
+.text-left {
+	text-align: left;
+}
+.submitBtn {
+	border: none;
+	border-radius: 5px;
+	background-color: #e22226;
+	color: #fff;
+	width: 100%;
+	padding: 12px 20px;
+	margin-bottom: 10px;
+}
+
+.joinBtn {
+	display: block;
+	padding: 12px 20px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
