@@ -3,7 +3,7 @@ package com.rent.happy.event;
 
 
 public class EventDTO {
-   int id;
+   String id;
    String title;
    String period;
    String image_url;
@@ -12,10 +12,10 @@ public EventDTO() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public int getId() {
+public String getId() {
 	return id;
 }
-public void setId(int id) {
+public void setId(String id) {
 	this.id = id;
 }
 public String getTitle() {

@@ -27,4 +27,10 @@ public class HomeController {
 		return "header";
 	}
 	
+	@RequestMapping(value = "booking2")
+	public String bo() {
+		
+		return "booking2";
+	}
+	
 }

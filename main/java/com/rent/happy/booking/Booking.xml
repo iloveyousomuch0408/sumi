@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rent.happy.booking.BookingService">
+	<!-- 보험x New 차량 -->
+	<insert id="noneNewDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+	<!-- 보험o New 차량 -->
+	<insert id="coverNewDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+	<!-- 슈퍼 New 차량 -->
+	<insert id="superNewDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+
+    <!-- 보험x 경형 차량 -->
+    <insert id="noneMiniDB" parameterType="com.rent.happy.booking.BookingDTO">
+    	INSERT INTO NONENEWDB (
+        	RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+    </insert>
+    <!-- 보험o 경형 차량 -->
+	<insert id="coverMiniDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+	<!-- 슈퍼 경형 차량 -->
+	<insert id="superMiniDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+  
+    <!-- 보험x 준중형 차량 -->
+    <insert id="noneSemiDB" parameterType="com.rent.happy.booking.BookingDTO">
+    	INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+  	</insert>
+  	<!-- 보험o 준중형 차량 -->
+	<insert id="coverSemiDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+	<!-- 슈퍼 준준형 차량 -->
+	<insert id="superSemiDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+  	
+  	<!-- 보험x 중형 차량 -->
+    <insert id="noneMidsizeDB" parameterType="com.rent.happy.booking.BookingDTO">
+    	INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+  	</insert>
+  	<!-- 보험o 중형 차량 -->
+	<insert id="coverMidsizeDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+	<!-- 슈퍼 중형 차량 -->
+	<insert id="superMidsizeDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+  	
+  	<!-- 보험x 고급 차량 -->
+    <insert id="nonePremiumDB" parameterType="com.rent.happy.booking.BookingDTO">
+    	INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+    </insert>
+    <!-- 보험o 고급 차량 -->
+	<insert id="coverPremiumDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+	<!-- 슈퍼 고급 차량 -->
+	<insert id="superPremiumDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+    
+    <!-- 보험x SUV 차량 -->
+    <insert id="noneSuvDB" parameterType="com.rent.happy.booking.BookingDTO">
+    	INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+    </insert>
+    <!-- 보험o SUV 차량 -->
+	<insert id="coverSuvDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+	<!-- 슈퍼 SUV 차량 -->
+	<insert id="superSuvDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+    
+    <!-- 보험x 승합 차량 -->
+    <insert id="noneVanDB" parameterType="com.rent.happy.booking.BookingDTO">
+    	INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+    </insert>
+    <!-- 보험o 승합 차량 -->
+	<insert id="coverVanDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+	<!-- 슈퍼 승합 차량 -->
+	<insert id="superVanDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+    
+    <!-- 보험x 특가할인 차량 -->
+    <insert id="noneSaleDB" parameterType="com.rent.happy.booking.BookingDTO">
+    	INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+    </insert>
+    <!-- 보험o 특가할인 차량 -->
+	<insert id="coverSaleDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE,BOOKNUM
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}, book_seq.nextval()
+    	)
+	</insert>
+	
+	<select id="car2" resultType="com.rent.happy.booking.BookingDTO">
+		select * from nonenewdb
+	</select>
+	<!-- 슈퍼 특가할인 차량 -->
+	<insert id="superSaleDB" parameterType="com.rent.happy.booking.BookingDTO">
+		INSERT INTO NONENEWDB (
+      		RENTAL_YEAR, RENTAL_MONTH, RENTAL_DAY, RENTAL_TIME,
+      		RETURN_YEAR, RETURN_MONTH, RETURN_DAY, RETURN_TIME,
+      		INSURANCE, CAR_TYPE
+    	) VALUES (
+      		#{RENTAL_YEAR}, #{RENTAL_MONTH}, #{RENTAL_DAY}, #{RENTAL_TIME},
+      		#{RETURN_YEAR}, #{RETURN_MONTH}, #{RETURN_DAY}, #{RETURN_TIME},
+      		#{INSURANCE}, #{CAR_TYPE}
+    	)
+	</insert>
+	<!-- car.jsp에서 날짜+보험+차량금액 합계 -->
+	<select id="getBaseRate" resultType="int" parameterType="String">
+       SELECT base_rate
+       FROM car_rate_table
+       WHERE car_name = #{carName}
+    </select>
+	
+	
+</mapper>

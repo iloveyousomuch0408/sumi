@@ -210,10 +210,9 @@
   <div class="search">
     <img src="images/event/돋보기.png" class="search-icon" onclick="toggleSearchBox()">
   </div>
-  
   <!-- ✅ form으로 수정 -->
-  <form method="get" action="eventinput" class="search-box" id="searchBox" style="display: none;">
-     <input type="text" name="keyword" placeholder="검색어를 입력하세요" value="${keyword}">
+  <form method="get" action="eventsearch" class="search-box" id="searchBox" style="display: none;">
+     <input type="text" name="keyword" placeholder="검색어를 입력하세요">
      <button type="submit">검색</button>
     
     <button type="submit" class="search-btn" style="background: none; border: none; padding: 0;">

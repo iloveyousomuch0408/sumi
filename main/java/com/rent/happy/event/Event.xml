@@ -7,8 +7,16 @@
 
   <select id="searchEvents" resultType="com.rent.happy.event.EventDTO">
     SELECT * FROM event
-    WHERE title LIKE '%' || #{keyword} || '%'
+    WHERE title LIKE '%' || #{param1} || '%'
   </select>
-
+  
+  <select id="search" resultType="com.rent.happy.event.EventDTO">
+  	select * from event
+  	where title like '%'||#{param1}||'%'
+  </select>
+	
+	<insert id="sa">
+		insert into event values(#{param1}, #{param2})
+	</insert>
 </mapper>
 

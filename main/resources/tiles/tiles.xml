@@ -4,97 +4,140 @@
 "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-	<definition name="baseLayout" template="/WEB-INF/views/layout.jsp">
-    	<put-attribute name="title" value="happy rent car"/>
-    	<put-attribute name="header" value="/WEB-INF/views/header.jsp"/>
-    	<put-attribute name="contents" value=""/>
-    	<put-attribute name="footer" value="/WEB-INF/views/footer.jsp"/>
+	<definition name="baseLayout"
+		template="/WEB-INF/views/layout.jsp">
+		<put-attribute name="title" value="happy rent car" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/header.jsp" />
+		<put-attribute name="contents" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/footer.jsp" />
 	</definition>
-   
-   <definition name="main" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/main.jsp"/>
-   </definition> 
-   
-   <!-- *** Auth *** -->
-   <!-- 로그인 -->
-   <definition name="login" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/auth/login.jsp"/>
-   </definition> 
-   <!-- 회원가입 -->
-   <definition name="join" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/auth/join.jsp"/>
-   </definition> 
-   <!-- 사이드메뉴바 -->
-   <definition name="sidemenuinput" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/sidemenu/sidemenuinput.jsp"/>
-   </definition> 
-   <!-- 이벤트 -->
-   <definition name="eventinput" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventinput.jsp"/>
-   </definition> 
-   <!-- 이벤트2 -->
-   <definition name="eventinput2" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventinput2.jsp"/>
-   </definition> 
-    <!-- 이벤트상세페이지1 -->
-   <definition name="eventzero" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero.jsp"/>
-   </definition> 
-   <!-- 이벤트상세페이지2 -->
-   <definition name="eventzero2" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero2.jsp"/>
-   </definition> 
-    <!-- 이벤트상세페이지3 -->
-   <definition name="eventzero3" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero3.jsp"/>
-   </definition> 
-   <!-- 이벤트상세페이지4 -->
-   <definition name="eventzero4" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero4.jsp"/>
-   </definition> 
-   <!-- 이벤트상세페이지5 -->
-   <definition name="eventzero5" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero5.jsp"/>
-   </definition> 
-   <!-- 이벤트상세페이지6 -->
-   <definition name="eventzero6" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero6.jsp"/>
+
+	<definition name="main" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/main.jsp" />
+	</definition>
+
+	<!-- *** Auth *** -->
+	<!-- 로그인 -->
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/auth/login.jsp" />
+	</definition>
+	<!-- 회원가입 -->
+	<definition name="join" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/auth/join.jsp" />
+	</definition>
+	<!-- 사이드메뉴바 -->
+	<definition name="sidemenuinput" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/sidemenu/sidemenuinput.jsp" />
+	</definition>
+	<!-- 이벤트 -->
+	<definition name="eventinput" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventinput.jsp" />
+	</definition>
+	<!-- 이벤트2 -->
+	<definition name="eventinput2" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventinput2.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지1 -->
+	<definition name="eventzero" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지2 -->
+	<definition name="eventzero2" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero2.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지3 -->
+	<definition name="eventzero3" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero3.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지4 -->
+	<definition name="eventzero4" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero4.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지5 -->
+	<definition name="eventzero5" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero5.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지6 -->
+	<definition name="eventzero6" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero6.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지7 -->
+	<definition name="eventzero7" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero7.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지8 -->
+	<definition name="eventzero8" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero8.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지9 -->
+	<definition name="eventzero9" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero9.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지10 -->
+	<definition name="eventzero10" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero10.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지11 -->
+	<definition name="eventzero11" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero11.jsp" />
+	</definition>
+	<!-- 이벤트상세페이지12 -->
+	<definition name="eventzero12" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventzero12.jsp" />
+	</definition>
+	<!-- 렌트카 예약 -->
+	<definition name="booking" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/booking/booking.jsp" />
+	</definition>
+	
+	<definition name="booking2" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/booking/booking2.jsp" />
+	</definition>
+	
+	<!-- car상세페이지 2003레이 -->
+	<definition name="cardetail1" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/cardetail/cardetail1.jsp" />
+	</definition>
+	<!-- 면책미포함&car1 -->
+	<definition name="car1" extends="baseLayout">
+      <put-attribute name="contents" 
+       value="/WEB-INF/views/booking/car1.jsp"/>
    </definition>
-   <!-- 이벤트상세페이지7 -->
-   <definition name="eventzero7" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero7.jsp"/>
-   </definition>
-   <!-- 이벤트상세페이지8 -->
-   <definition name="eventzero8" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero8.jsp"/>
-   </definition>
-   <!-- 이벤트상세페이지9 -->
-   <definition name="eventzero9" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero9.jsp"/>
-   </definition>
-   <!-- 이벤트상세페이지10 -->
-   <definition name="eventzero10" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero10.jsp"/>
-   </definition>
-   <!-- 이벤트상세페이지11 -->
-   <definition name="eventzero11" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero11.jsp"/>
-   </definition>
-   <!-- 이벤트상세페이지12 -->
-   <definition name="eventzero12" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/event/eventzero12.jsp"/>
-   </definition>
-   <!-- 렌트카 예약 -->
-   <definition name="booking" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/booking/booking.jsp"/>
-   </definition>
-   <!-- car상세페이지 2003레이 -->
-   <definition name="cardetail" extends="baseLayout">
-		<put-attribute name="contents" value="/WEB-INF/views/cardetail/cardetail.jsp"/>
-   </definition>
-   
-   
-   
-   
-   
+	<!-- 검색기능 -->
+	<definition name="eventsearch" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/eventsearch.jsp" />
+	</definition>
+
+	<definition name="evinput" extends="baseLayout">
+		<put-attribute name="contents"
+			value="/WEB-INF/views/event/evinput.jsp" />
+	</definition>
+
+
+
+
 </tiles-definitions>

@@ -1,266 +1,510 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.Calendar"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>엔트카 예약</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f8f8f8; }
+<meta charset="UTF-8" />
+<title>렌트카 예약 메인</title>
+<style>
+body {
+	background: #f4f4f0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px 0;
+}
 
-    .header {
-      padding: 10px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .header img { height: 30px; }
+.date-section {
+	display: flex;
+	justify-content: center; /* 내부 요소 가운데 정렬 */
+	align-items: stretch; /* 세로 높이 맞춤 */
+	gap: 0; /* 선 위치 맞춤 위해 gap은 0 */
+	width: 100%;
+	max-width: 420px;
+	margin: 0 auto 20px; /* 페이지 가운데 정렬 */
+	padding: 16px;
+	background: #fff;
+	border-radius: 2px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 
-    .carousel-container {
-      width: 90%; margin: 20px auto; overflow: hidden;
-      border-radius: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      height: 140px;
-    }
-    .carousel-inner {
-      display: flex; transition: transform 0.5s ease-in-out;
-      width: 1000%; height: 100%;
-    }
-    .mySlides { flex: 0 0 10%; height: 100%; }
-    .mySlides img {
-      width: 100%; height: 100%; object-fit: cover; border-radius: 20px;
-      display: block;
-    }
+.btn-group {
+	width: 100%;
+	max-width: 420px;
+	margin-bottom: 20px;
+	padding: 16px;
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 
-    .section-box {
-      background: #fff; width: 90%; margin: 10px auto;
-      border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      padding: 16px; position: relative;
-    }
+form {
+	width: 90%;
+	margin: 20px auto 0;
+	padding: 0; /* ✅ 내부 여백 제거 */
+	background: transparent; /* ✅ 배경 제거 */
+	border: none; /* ✅ 테두리 제거 */
+	box-shadow: none; /* ✅ 그림자 제거 */
+}
 
-    /* --- 추가된 달력 선택 디자인 시작 --- */
-    .date-select {
-      width: 100%; max-width: 420px; margin: 0 auto; padding: 20px;
-      display: flex; justify-content: space-around; align-items: center;
-      background: #f2f2f2; border-radius: 12px; cursor: pointer;
-      font-size: 16px; font-weight: bold;
-    }
-    .date-select div {
-      padding: 10px;
-      border-radius: 6px;
-      background: white;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
+.banner {
+	width: 90%;
+	margin: 50px auto 40px auto; /* 👈 아래 여백을 40px로 늘림 */
+	overflow: hidden;
+	border-radius: 10px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .calendar-container {
-      display: none;
-      width: 100%; max-width: 420px; margin: 10px auto;
-      border: 1px solid #ccc; border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      background: #fff;
-    }
-    .calendar-header {
-      background: white;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .calendar-header .prev,
-    .calendar-header .next {
-      position: absolute;
-      top: 50%; transform: translateY(-50%);
-      font-size: 20px;
-      color: #555;
-      cursor: pointer;
-    }
-    .calendar-header .prev { left: 16px; }
-    .calendar-header .next { right: 16px; }
-    .calendar-weekdays,
-    .calendar-days {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      text-align: center;
-    }
-    .calendar-weekdays {
-      background: #fff;
-      color: #555;
-      font-weight: bold;
-      padding: 8px 0;
-    }
-    .calendar-days div {
-      position: relative;
-      padding: 16px 0;
-      font-size: 15px;
-      color: #444;
-      cursor: pointer;
-    }
-    .calendar-days div span {
-      display: inline-block;
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-      text-align: center;
-      border-radius: 50%;
-    }
-    .calendar-days .selected span {
-      background: red;
-      color: white;
-    }
-    .calendar-footer {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 16px;
-      border-top: 1px solid #ccc;
-    }
-    .calendar-footer select {
-      padding: 6px 10px;
-      font-size: 14px;
-    }
-    .calendar-confirm {
-      display: block;
-      width: 200px;
-      margin: 20px auto;
-      background: red; color: white;
-      font-size: 18px;
-      padding: 10px;
-      border: none;
-      border-radius: 10px;
-      text-align: center;
-      cursor: pointer;
-    }
-    /* --- 추가된 달력 선택 디자인 끝 --- */
+.banner-wrapper {
+	position: relative;
+	width: 100%;
+	height: 120px;
+}
 
-    .insurance-box { width: 90%; margin: 10px auto; display: flex; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
-    .insurance-box div { flex: 1; padding: 12px 0; text-align: center; background: #f2f2f2; font-weight: bold; border-right: 1px solid #ddd; }
-    .insurance-box div:last-child { border-right: none; }
-    .insurance-box .active { background: red; color: white; }
+.banner-wrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: opacity 0.5s;
+	z-index: 0;
+}
 
-    .car-type-box { width: 90%; margin: 10px auto; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #ddd; border-radius: 8px; overflow: hidden; }
-    .car-type-box div { padding: 14px 0; text-align: center; font-weight: bold; background: #f2f2f2; border-right: 1px solid #ddd; border-bottom: 1px solid #ddd; }
-    .car-type-box div:nth-child(4), .car-type-box div:nth-child(8) { border-right: none; }
-    .car-type-box div:nth-child(n+5) { border-bottom: none; }
-    .car-type-box .active { background: red; color: white; }
+.banner-wrapper img.active {
+	opacity: 1;
+	z-index: 1;
+}
 
-    .btn-red { display: block; width: 90%; margin: 30px auto; padding: 14px 0; background: red; color: #fff; border: none; border-radius: 12px; font-size: 18px; font-weight: bold; cursor: pointer; }
-  </style>
+.date-section {
+	width: 90%;
+	display: flex;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+}
+
+.date-box {
+	flex: 1;
+	padding: 10px 5px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.date-box span:first-child {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+	display: inline-flex;
+	align-items: center;
+	margin-bottom: 4px;
+}
+
+.arrow-box {
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.arrow-box::before {
+	content: '';
+	position: absolute;
+	width: 1px;
+	height: 100%;
+	background-color: #ccc;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+
+.select-row {
+	display: flex;
+	gap: 4px;
+	justify-content: center;
+	margin-bottom: 4px;
+}
+
+.select-group {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.select-group label {
+	font-size: 12px;
+	margin-bottom: 2px;
+	color: #555;
+}
+
+.select-group select {
+	padding: 4px;
+	font-size: 14px;
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+.btn-row {
+	display: flex;
+	width: 90%;
+	margin: 0 auto 14px;
+	overflow: hidden; /* 둥근 모서리 깨짐 방지 */
+}
+
+.btn-row .btn-option {
+	flex: 1;
+	padding: 12px 0;
+	font-size: 14px;
+	background: #ffffff;
+	border: 1px solid #ddd;
+	border-right: none;
+	cursor: pointer;
+}
+
+.btn-row .btn-option:last-child {
+	border-right: 1px solid #ddd;
+}
+
+.btn-row .btn-option.active {
+	background: #e42025;
+	color: #fff;
+}
+
+.btn-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0;
+	width: 90%;
+	margin: 0 auto 16px;
+	border: 0.5px solid #ddd;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.btn-grid .btn-option {
+	padding: 14px 0;
+	font-size: 14px;
+	background: #f9f9f9;
+	border: 1px solid #ddd;
+	border-right: none;
+	border-bottom: none;
+	text-align: center;
+	cursor: pointer;
+}
+
+.btn-grid .btn-option:nth-child(4n) {
+	border-right: 0;
+}
+
+.btn-grid .btn-option:nth-last-child(-n+4) {
+	border-bottom: 0;
+}
+
+.btn-grid .btn-option.active {
+	background: #e42025;
+	color: #fff;
+}
+/* 오른쪽 마지막 버튼 border-right 유지 */
+.btn-row .btn-option:last-child {
+	border-right: 1px solid #ddd;
+}
+
+/* 첫 번째 버튼 왼쪽 둥글게 */
+.btn-row .btn-option:first-child {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+
+/* 마지막 버튼 오른쪽 둥글게 */
+.btn-row .btn-option:last-child {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
+/* 활성화 상태 */
+.btn-row .btn-option.active {
+	background: #e42025;
+	color: #fff;
+}
+
+.search-btn {
+	width: 100%;
+	padding: 12px;
+	font-size: 16px;
+	background: #e42025;
+	color: #fff;
+	border: none;
+	border-radius: 8px;
+	cursor: pointer;
+}
+</style>
 </head>
+
 <body>
+	<%
+	// 현재 연도 구하기
+	int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+	%>
 
-<div class="header">
-  <img src="/images/logo/happyrentcar.png" alt="로고">
-  <img src="/images/icon/menu.png" alt="메뉴" style="height: 24px;">
-</div>
+	<div class="container">
+		<!-- 배너 -->
+		<div class="banner">
+			<div class="banner-wrapper">
+				<img src="./images/booking/booking1.jpg" class="active" alt="슈퍼자차" />
+				<img src="./images/booking/booking2.jpg" alt="면책금제로" /> <img
+					src="./images/booking/booking3.png" alt="펠리세이드" /> <img
+					src="./images/booking/booking4.jpg" alt="카시트유모차" /> <img
+					src="./images/booking/booking5.jpg" alt="부가부유모차" /> <img
+					src="./images/booking/booking6.jpg" alt="쏘렌토 배너" /> <img
+					src="./images/booking/booking7.jpg" alt="아반떼 배너" /> <img
+					src="./images/booking/booking8.jpg" alt="sns이벤트" /> <img
+					src="./images/booking/booking9.jpg" alt="장기렌탈 이벤트 배너" /> <img
+					src="./images/booking/booking10.jpg" alt="블박0원대여료" />
+			</div>
+		</div>
 
-<div class="carousel-container">
-  <div class="carousel-inner" id="carouselInner">
-    <c:forEach var="i" begin="1" end="10">
-      <div class="mySlides">
-        <img src="<c:url value='/images/booking/booking${i}.jpg'/>">
-      </div>
-    </c:forEach>
-  </div>
-</div>
+		<!-- 날짜 선택 영역 -->
+		<div class="date-section">
+			<!-- 대여일 -->
+			<div class="date-box">
+				<span> <img src="./images/booking/res_calendar_black.png"
+					style="width: 16px; margin-right: 4px;" alt="캘린더 아이콘" />대여일
+				</span>
+				<div class="select-row">
+					<div class="select-group">
+						<label>년도</label> <select id="rYear">
+							<%
+							for (int i = 0; i <= 5; i++) {
+							%>
+							<option><%=currentYear + i%></option>
+							<%
+							}
+							%>
+						</select>
+					</div>
+					<div class="select-group">
+						<label>월</label> <select id="rMonth">
+							<%
+							for (int m = 1; m <= 12; m++) {
+							%>
+							<option><%=String.format("%02d", m)%></option>
+							<%
+							}
+							%>
+						</select>
+					</div>
+					<div class="select-group">
+						<label>일</label> <select id="rDay">
+							<%
+							for (int d = 1; d <= 31; d++) {
+							%>
+							<option><%=String.format("%02d", d)%></option>
+							<%
+							}
+							%>
+						</select>
+					</div>
+				</div>
+				<div class="select-group">
+					<label>대여시간</label> <select id="rTime">
+						<%
+						for (int h = 8; h <= 22; h++) {
+							String hour = String.format("%02d", h);
+						%>
+						<option><%=hour%>:00
+						</option>
+						<%
+						if (h < 22) {
+						%><option><%=hour%>:30
+						</option>
+						<%
+						}
+						%>
+						<%
+						}
+						%>
+					</select>
+				</div>
+			</div>
 
-<div class="section-box">
-  <div class="date-select" onclick="toggleCalendar()">
-    <div>대여일: <span id="selectedStart">선택</span></div>
-    <div>반납일: <span id="selectedEnd">선택</span></div>
-  </div>
-</div>
+			<!-- 화살표 -->
+			<div class="arrow-box">
+				<img src="./images/booking/res_arrow.png"
+					style="width: 16px; z-index: 2; position: relative;" alt="구분 화살표" />
+			</div>
 
-<div class="calendar-container" id="calendarContainer">
-  <div class="calendar-header">
-    <span class="prev">&#10094;</span>
-    2025. 04
-    <span class="next">&#10095;</span>
-  </div>
+			<!-- 반납일 -->
+			<div class="date-box">
+				<span> <img src="./images/booking/res_calendar_black.png"
+					style="width: 16px; margin-right: 4px;" alt="캘린더 아이콘" />반납일
+				</span>
+				<div class="select-row">
+					<div class="select-group">
+						<label>년도</label> <select id="tYear">
+							<%
+							for (int i = 0; i <= 5; i++) {
+							%>
+							<option><%=currentYear + i%></option>
+							<%
+							}
+							%>
+						</select>
+					</div>
+					<div class="select-group">
+						<label>월</label> <select id="tMonth">
+							<%
+							for (int m = 1; m <= 12; m++) {
+							%>
+							<option><%=String.format("%02d", m)%></option>
+							<%
+							}
+							%>
+						</select>
+					</div>
+					<div class="select-group">
+						<label>일</label> <select id="tDay">
+							<%
+							for (int d = 1; d <= 31; d++) {
+							%>
+							<option><%=String.format("%02d", d)%></option>
+							<%
+							}
+							%>
+						</select>
+					</div>
+				</div>
+				<div class="select-group">
+					<label>반납시간</label> <select id="tTime">
+						<%
+						for (int h = 8; h <= 22; h++) {
+							String hour = String.format("%02d", h);
+						%>
+						<option><%=hour%>:00
+						</option>
+						<%
+						if (h < 22) {
+						%><option><%=hour%>:30
+						</option>
+						<%
+						}
+						%>
+						<%
+						}
+						%>
+					</select>
+				</div>
+			</div>
+		</div>
 
-  <div class="calendar-weekdays">
-    <div style="color: red">일</div><div>월</div><div>화</div><div>수</div><div>목</div><div>금</div><div style="color: red">토</div>
-  </div>
+		<!-- 보험 옵션 버튼 -->
+		<div class="btn-row" id="insurance-group">
+			<button class="btn-option">면책미포함</button>
+			<button class="btn-option active">완전면책포함</button>
+			<button class="btn-option">슈퍼면책포함</button>
+		</div>
 
-  <div class="calendar-days" id="calendarDays">
-    <div><span>1</span></div><div><span>2</span></div><div><span>3</span></div><div><span>4</span></div><div><span>5</span></div><div><span>6</span></div><div><span>7</span></div>
-    <div><span>8</span></div><div><span>9</span></div><div><span>10</span></div><div><span>11</span></div><div><span>12</span></div><div><span>13</span></div><div><span>14</span></div>
-    <div><span>15</span></div><div><span>16</span></div><div><span>17</span></div><div><span>18</span></div><div><span>19</span></div><div><span>20</span></div><div><span>21</span></div>
-    <div><span>22</span></div><div><span>23</span></div><div><span>24</span></div><div><span>25</span></div><div><span>26</span></div><div><span>27</span></div><div><span>28</span></div>
-    <div><span>29</span></div><div><span>30</span></div>
-  </div>
+		<!-- 차량 옵션 버튼 -->
+		<div class="btn-grid" id="car-group">
+			<button class="btn-option">NEW</button>
+			<button class="btn-option active">경형</button>
+			<button class="btn-option">준중형</button>
+			<button class="btn-option">중형</button>
+			<button class="btn-option">고급</button>
+			<button class="btn-option">SUV</button>
+			<button class="btn-option">승합</button>
+			<button class="btn-option">특가할인</button>
+		</div>
 
-  <div class="calendar-footer">
-    <div>
-      <strong>대여 시간</strong><br>
-      <select>
-        <option>15:00</option>
-        <option>16:00</option>
-      </select>
-    </div>
-    <div>
-      <strong>반납 시간</strong><br>
-      <select>
-        <option>15:00</option>
-        <option>16:00</option>
-      </select>
-    </div>
-  </div>
-  <button class="calendar-confirm" onclick="applySelection()">확인</button>
-</div>
+		<!-- 검색 버튼 -->
+		<form method="post" id="bookingForm">
+			<input type="hidden" name="rYear" /> <input type="hidden"
+				name="rMonth" /> <input type="hidden" name="rDay" /> <input
+				type="hidden" name="rTime" /> <input type="hidden" name="tYear" />
+			<input type="hidden" name="tMonth" /> <input type="hidden"
+				name="tDay" /> <input type="hidden" name="tTime" /> <input
+				type="hidden" name="insurance" /> <input type="hidden" name="car" />
+			<button type="submit" class="search-btn">검색</button>
+		</form>
+	</div>
 
-<div class="insurance-box">
-  <div>면착미포함</div>
-  <div class="active">완전면착포함</div>
-  <div>슈퍼면착포함</div>
-</div>
+	<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    let index = 0;
+    const images = document.querySelectorAll('.banner img');
+    if (images.length === 0) return;
+    setInterval(() => {
+      images.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+      index = (index + 1) % images.length;
+    }, 3000);
 
-<div class="car-type-box">
-  <div>NEW</div><div class="active">경형</div><div>준중형</div><div>중형</div>
-  <div>고급</div><div>SUV</div><div>승합</div><div>특가할인</div>
-</div>
+    setSingleSelect("insurance-group");
+    setSingleSelect("car-group");
 
-<button class="btn-red">검색</button>
+    const form = document.getElementById("bookingForm");
 
-<script>
-  let slideIndex = 0;
-  const inner = document.getElementById("carouselInner");
-  const totalSlides = document.querySelectorAll(".mySlides").length;
+    function updateFormAndSubmit() {
+      form.rYear.value = document.getElementById("rYear").value;
+      form.rMonth.value = document.getElementById("rMonth").value;
+      form.rDay.value = document.getElementById("rDay").value;
+      form.rTime.value = document.getElementById("rTime").value;
 
-  function showSlides() {
-    slideIndex = (slideIndex + 1) % totalSlides;
-    inner.style.transform = `translateX(-${slideIndex * 10}%)`;
-  }
-  setInterval(showSlides, 4000);
+      form.tYear.value = document.getElementById("tYear").value;
+      form.tMonth.value = document.getElementById("tMonth").value;
+      form.tDay.value = document.getElementById("tDay").value;
+      form.tTime.value = document.getElementById("tTime").value;
 
-  function toggleCalendar() {
-    const cal = document.getElementById("calendarContainer");
-    cal.style.display = cal.style.display === "block" ? "none" : "block";
-  }
+      form.insurance.value = document.querySelector("#insurance-group .btn-option.active").textContent.trim();
+      form.car.value = document.querySelector("#car-group .btn-option.active").textContent.trim();
 
-  const dayElements = document.querySelectorAll(".calendar-days div");
-  let selectedStart = null;
-  let selectedEnd = null;
+      form.action = "car1";
+      form.submit();
+    }
 
-  dayElements.forEach(el => {
-    el.addEventListener("click", () => {
-      dayElements.forEach(e => e.classList.remove("selected"));
-      el.classList.add("selected");
-
-      const day = el.textContent.trim();
-      if (!selectedStart || selectedEnd) {
-        selectedStart = day;
-        selectedEnd = null;
-      } else {
-        selectedEnd = day;
-      }
+    // 보험 버튼 클릭 시 바로 전송
+    const insuranceBtns = document.querySelectorAll("#insurance-group .btn-option");
+    insuranceBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        insuranceBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        updateFormAndSubmit(); // ✅ 클릭 시 바로 전송
+      });
     });
-  });
 
-  function applySelection() {
-    if (selectedStart) document.getElementById("selectedStart").innerText = selectedStart;
-    if (selectedEnd) document.getElementById("selectedEnd").innerText = selectedEnd;
-    document.getElementById("calendarContainer").style.display = "none";
-  }
+    // 차량 옵션 선택은 UI만 변경
+    const carBtns = document.querySelectorAll("#car-group .btn-option");
+    carBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        carBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+
+    // 검색 버튼 클릭 시에도 car1으로
+    document.querySelector(".search-btn").addEventListener("click", (e) => {
+      e.preventDefault();
+      updateFormAndSubmit();
+    });
+
+    function setSingleSelect(id) {
+      const group = document.getElementById(id);
+      const buttons = group.querySelectorAll(".btn-option");
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          buttons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        });
+      });
+    }
+  });
 </script>
 
 </body>

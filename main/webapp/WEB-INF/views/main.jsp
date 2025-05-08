@@ -410,7 +410,7 @@ body {
 
 <!-- ✅ 상단 버튼 -->
 <div class="service-buttons">
-   <a href="/rent" class="service-button"> <img
+   <a href="booking2" class="service-button"> <img
       src="./images/main/main_quick_icon01.png" alt="렌트카 아이콘"> <span>렌트카
          예약</span>
    </a> <a href="/baby" class="service-button"> <img
@@ -753,7 +753,7 @@ body {
 </div>
 
 <!-- ✅ 카카오 지도 API 스크립트 추가 -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=0876e95129066b863a8668d39dcb1f74"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c7d1f62efc4ed7f90c40bd6a856f3f6d"></script>
 <script>
 var mapContainer = document.getElementById('map'),
 mapOption = {

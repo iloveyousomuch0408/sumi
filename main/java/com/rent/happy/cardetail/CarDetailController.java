@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CarDetailController {
 
-	@RequestMapping(value = "/cardetail")
+	@RequestMapping(value = "/cardetail1")
 	public String eventinput2() {			
 		
-		return "cardetail";
+		return "cardetail1";
 		
 	}
 	

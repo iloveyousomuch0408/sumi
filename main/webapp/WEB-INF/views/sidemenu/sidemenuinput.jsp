@@ -173,7 +173,7 @@
     <!-- 메뉴 리스트 -->
     <ul>
       <li><a href="booking">렌트카 예약</a></li>
-      <li><a href="cardetail">카시트/유모차 예약</a></li>
+      <li><a href="cardetail1">카시트/유모차 예약</a></li>
       <li><a href="eventinput">이벤트</a></li>
       <li>오시는길</li>
       <li>REVIEW</li>

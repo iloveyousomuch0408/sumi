@@ -9,7 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 // ✅ 여기에 아래 3줄 추가!
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
@@ -19,12 +23,32 @@ public class EventController {
 		
         @RequestMapping("/eventinput")
         public String searchEvents(@RequestParam(value = "keyword", required = false) String keyword, Model model) {
-            EventService mapper = sqlSession.getMapper(EventService.class);
-            List<EventDTO> list = mapper.searchEvents(
-                (keyword != null && !keyword.isEmpty()) ? keyword : "");
-            model.addAttribute("eventList", list);
-            model.addAttribute("keyword", keyword);
+           
             return "eventinput";
+        }
+        
+        @RequestMapping(value = "/evinput")
+        public String in() {
+        	
+        	return "evinput";
+        }
+        
+        @RequestMapping(value = "/evsave")
+        public String sa(HttpServletRequest request) {
+        	String id = request.getParameter("id");
+        	String title = request.getParameter("title");
+        	EventService es = sqlSession.getMapper(EventService.class);
+        	es.sa(id,title);
+        	return "redirect:/main";
+        }
+        
+        @RequestMapping(value = "eventsearch")
+        public String search(HttpServletRequest request, Model model) {
+        	String keyword = request.getParameter("keyword");
+        	EventService es = sqlSession.getMapper(EventService.class); 
+        	ArrayList<EventDTO> list = es.search(keyword);
+        	model.addAttribute("list", list);
+        	return "eventsearch";
         }
 
 
