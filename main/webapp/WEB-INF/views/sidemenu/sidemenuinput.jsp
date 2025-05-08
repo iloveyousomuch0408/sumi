@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -79,6 +80,8 @@
       line-height: 1.4;
       border-top: 1px solid #DCDCDC;
       border-right: 1px solid #DCDCDC;
+      width: 50%; /* ✅ 추가: 각 셀 너비 고정 */
+      box-sizing: border-box;
     }
 
     .side-table tr td:last-child {
@@ -185,19 +188,31 @@
     <!-- 고객센터 -->
     <div class="section-title">고객센터</div>
 
-    <!-- 문의 테이블 -->
-    <div class="side-table">
-      <table>
-        <tr>
-          <td>Q&amp;A</td>
-          <td>장기렌트카 문의</td>
-        </tr>
-        <tr>
-          <td>자주 묻는 질문</td>
-          <td>공지 사항</td>
-        </tr>
-      </table>
-    </div>
+   <!-- 고객센터 테이블 -->
+<div class="side-table">
+  <table>
+    <tr>
+      <td><a href="#">Q&A</a></td>
+      <td><a href="#">공지사항</a></td>
+    </tr>
+    <tr>
+      <td><a href="#">회원가입</a></td>
+      <td>
+        <c:if test="${empty sessionScope.user}">
+          <!-- 로그인하지 않은 상태 -->
+          <a href="login.jsp">로그인</a>
+        </c:if>
+        <c:if test="${not empty sessionScope.user}">
+          <!-- 로그인한 상태 -->
+          <span>${sessionScope.user.name}님 환영합니다</span>
+          <a href="logout.jsp">로그아웃</a>
+        </c:if>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
 
     <!-- 카카오 고객센터 박스 -->
     <div class="cs-box" onclick="window.open('https://github.com/iloveyousomuch0408')">

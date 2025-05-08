@@ -7,48 +7,58 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void noneNewDB(BookingDTO dto) {
-        // ½ÇÁ¦ DB ÀúÀå ·ÎÁ÷ (¿¹: MyBatis ¸ÅÆÛ È£Ãâ)
+        // ì‹¤ì œ DB ì €ì¥ ë¡œì§ (ì˜ˆ: MyBatis ë§¤í¼ í˜¸ì¶œ ì˜ˆì •)
     }
 
-    @Override
+    // ğŸ’¡ ê³„ì‚°ìš© ë©”ì„œë“œëŠ” ì—¬ê¸°ì„œë§Œ ì‚¬ìš© (MyBatisì™€ ë¬´ê´€)
     public int calculateTotalPrice(String carName, int rentalDays, String insurance) {
         int baseRate = getBaseRateByCarName(carName);
         int insuranceExtra = 0;
 
         switch (insurance) {
-            case "¿ÏÀü¸éÃ¥Æ÷ÇÔ": insuranceExtra = 5000; break;
-            case "½´ÆÛ¸éÃ¥Æ÷ÇÔ": insuranceExtra = 19500; break;
-            default: insuranceExtra = 0;
+            case "ì™„ì „ë©´ì±…í¬í•¨":
+                insuranceExtra = 5000;
+                break;
+            case "ìŠˆí¼ë©´ì±…í¬í•¨":
+                insuranceExtra = 19500;
+                break;
+            default:
+                insuranceExtra = 0;
         }
 
-        return rentalDays * (baseRate + insuranceExtra);
+        int total = rentalDays * (baseRate + insuranceExtra);
+        System.out.println("ì´ ìš”ê¸ˆ: " + String.format("%,dì›", total));
+        return total;
     }
 
-    @Override
     public int getBaseRateByCarName(String carName) {
-        switch (carName) {
-            case "2023 ·¹ÀÌ": return 49000;
-            case "2022 Ä³½ºÆÛ": return 39600;
-            case "2022 ·¹ÀÌ": return 37000;
-            case "2025 ¾Æ¹İ¶¼": return 63000;
-            case "2023 ¿Ã´º¾Æ¹İ¶¼": return 49000;
-            case "2022 ´õ´ºK3": return 39800;
-            case "2025 ´õ´ºK5ÈÖ¹ßÀ¯": return 75600;
-            case "2024 ½î³ªÅ¸ µğ¿§Áö ÈÖ¹ßÀ¯": return 65600;
-            case "2023 K5 ÈÖ¹ßÀ¯": return 53600;
-            case "2022 ½î³ªÅ¸DN.8ÈÖ¹ßÀ¯": return 45600;
-            case "2025 µğ¿Ã´ºÆÓ¸®¼¼ÀÌµå7ÀÎ½Â": return 169000;
-            case "2023 ÆÓ¸®¼¼ÀÌµå 7ÀÎ½Â": return 124000;
-            case "2025 µğ¿Ã´ºÆÓ¸®¼¼ÀÌµå9ÀÎ½Â": return 149000;
-            case "2025 ´õ´º½î·»Åä 7ÀÎ½Â": return 136600;
-            case "2023 ½ºÅ¸¸®¾Æ ¶ó¿îÁö9ÀÎ½Â": return 129000;
-            case "2023 Ä«´Ï¹ß9ÀÎ½Â": return 946000;
-            case "Ä³½ºÆÛ/·¹ÀÌ ·£´ı": return 59000;
-            case "¿Ã´º¾Æ¹İ¶¼_´õ´ºK3_·£´ı": return 69000;
-            default: return 49000;
+        if (carName == null) {
+            System.out.println("ğŸš¨ carName is null");
+            return 0;
+        }
+
+        switch (carName.trim()) {
+            case "2023 ë ˆì´": return 49000;
+            case "2022 ìºìŠ¤í¼": return 39600;
+            case "2022 ë ˆì´": return 37000;
+            case "2025 ì•„ë°˜ë–¼": return 63000;
+            case "2023 ì˜¬ë‰´ì•„ë°˜ë–¼": return 49000;
+            case "2022 ë”ë‰´K3": return 39800;
+            case "2025 ë”ë‰´K5íœ˜ë°œìœ ": return 75600;
+            case "2024 ì˜ë‚˜íƒ€ ë””ì—£ì§€ íœ˜ë°œìœ ": return 65600;
+            case "2023 K5 íœ˜ë°œìœ ": return 53600;
+            case "2022 ì˜ë‚˜íƒ€DN.8íœ˜ë°œìœ ": return 45600;
+            case "2025 ë””ì˜¬ë‰´íŒ°ë¦¬ì„¸ì´ë“œ7ì¸ìŠ¹": return 169000;
+            case "2023 íŒ°ë¦¬ì„¸ì´ë“œ 7ì¸ìŠ¹": return 124000;
+            case "2025 ë””ì˜¬ë‰´íŒ°ë¦¬ì„¸ì´ë“œ9ì¸ìŠ¹": return 149000;
+            case "2025 ë”ë‰´ì˜ë Œí†  7ì¸ìŠ¹": return 136600;
+            case "2023 ìŠ¤íƒ€ë¦¬ì•„ ë¼ìš´ì§€9ì¸ìŠ¹": return 129000;
+            case "2023 ì¹´ë‹ˆë°œ9ì¸ìŠ¹": return 946000;
+            case "ìºìŠ¤í¼/ë ˆì´ ëœë¤": return 59000;
+            case "ì˜¬ë‰´ì•„ë°˜ë–¼_ë”ë‰´K3_ëœë¤": return 69000;
+            default:
+                System.out.println("ğŸš¨ ì•Œ ìˆ˜ ì—†ëŠ” ì°¨ëŸ‰ëª…: " + carName);
+                return 0;
         }
     }
-
-	
-	
 }

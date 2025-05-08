@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%@ page import="com.rent.happy.booking.BookingDTO"%>
+
 
 <!-- 미포함 경형 -->
 <title>예약 정보 확인</title>
@@ -466,21 +466,22 @@ body {
 			</div>
 			<!-- 검색 버튼 -->
 
-			<form action="noneMini" method="post" id="bookingForm">
-				<input type="hidden" name="rYear" value="${dto.RENTAL_YEAR}" /> <input
-					type="hidden" name="rMonth" value="${dto.RENTAL_MONTH}" /> <input
-					type="hidden" name="rDay" value="${dto.RENTAL_DAY}" /> <input
-					type="hidden" name="rTime" value="${dto.RENTAL_TIME}" /> <input
-					type="hidden" name="tYear" value="${dto.RETURN_YEAR}" /> <input
-					type="hidden" name="tMonth" value="${dto.RETURN_MONTH}" /> <input
-					type="hidden" name="tDay" value="${dto.RETURN_DAY}" /> <input
-					type="hidden" name="tTime" value="${dto.RETURN_TIME}" /> <input
-					type="hidden" name="insurance" value="${dto.INSURANCE}" /> <input
-					type="hidden" name="car" value="${dto.CAR_TYPE}" /> <input
-					type="hidden" id="rentalDays" value="${dto.RENTAL_DAYS}" /> <input
-					type="hidden" name="carName" value="${dto.CAR_NAME}" />
+			<form action="car1" method="post" id="bookingForm">
+				<input type="hidden" name="rYear" value="${dto.RENTAL_YEAR}" />
+				<input type="hidden" name="rMonth" value="${dto.RENTAL_MONTH}" />
+				<input type="hidden" name="rDay" value="${dto.RENTAL_DAY}" />
+				<input type="hidden" name="rTime" value="${dto.RENTAL_TIME}" />
+				<input type="hidden" name="tYear" value="${dto.RETURN_YEAR}" />
+				<input type="hidden" name="tMonth" value="${dto.RETURN_MONTH}" />
+				<input type="hidden" name="tDay" value="${dto.RETURN_DAY}" />
+				<input type="hidden" name="tTime" value="${dto.RETURN_TIME}" />
+				<input type="hidden" name="insurance" value="${dto.INSURANCE}" />
+				<input type="hidden" name="car" value="${dto.CAR_TYPE}" />
+				<input type="hidden" name="rentalDays" value="${dto.RENTAL_DAYS}" />
+				<input type="hidden" name="carName" id="carNameInput" />
 				<button type="submit" class="search-btn">검색</button>
 			</form>
+
 
 		</div>
 		<!-- 차량 리스트 -->
@@ -496,7 +497,9 @@ body {
 					<h3>
 						<a href="cardetail1">▷2023 레이</a>
 					</h3>
-					 <p class="car-price">${dto.totalPrice}원</p>
+					 <p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                      <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -509,7 +512,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge best">BEST</span>
 					<h3>▷2022 캐스퍼</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                      <p class="car-note">${dto.INSURANCE}</p>
 
 				</div>
@@ -522,7 +527,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge best">BEST</span>
 					<h3>▷2022 레이</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 			</div>
@@ -535,7 +542,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge new">NEW</span>
 					<h3>▷2025 아반떼</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -547,7 +556,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge new">NEW</span>
 					<h3>▷2023 올뉴아반떼</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -559,7 +570,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge best">BEST</span>
 					<h3>▷2022 더뉴K3</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 			</div>
@@ -584,7 +597,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge new">NEW</span>
 					<h3>▷2024 쏘나타 디엣지 휘발유</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 			</div>
@@ -608,7 +623,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge best">BEST</span>
 					<h3>▷2022 쏘나타DN.8휘발유</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 			</div>
@@ -621,7 +638,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge new">NEW</span>
 					<h3>▷2025 더뉴K5휘발유</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -633,7 +652,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge best">BEST</span>
 					<h3>▷2022 쏘나타DN8.휘발유</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 			</div>
@@ -646,7 +667,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge new">NEW</span>
 					<h3>▷2025 디올뉴팰리세이드7인승</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -658,7 +681,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge best">BEST</span>
 					<h3>▷2023 팰리세이드 7인승</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -670,7 +695,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge best">BEST</span>
 					<h3>▷2025 디올뉴팰리세이드9인승</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -682,7 +709,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge best">BEST</span>
 					<h3>▷2025 더뉴쏘렌토 7인승</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 			</div>
@@ -696,7 +725,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge new">NEW</span>
 					<h3>▷2023 스타리아 라운지9인승</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -708,7 +739,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge best">BEST</span>
 					<h3>▷2023 카니발9인승</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 			</div>
@@ -722,7 +755,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge event">EVENT</span>
 					<h3>▷캐스퍼/레이 랜덤</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -734,7 +769,9 @@ body {
 				<div class="car-info">
 					<span class="car-badge event">EVENT</span>
 					<h3>▷올뉴아반떼/더뉴K3 랜덤</h3>
-					<p class="car-price">${dto.totalPrice}원</p>
+					<p class="car-price">
+                     <fmt:formatNumber value="${dto.totalPrice}" type="number" groupingUsed="true" />원
+                     </p>
                     <p class="car-note">${dto.INSURANCE}</p>
 				</div>
 
@@ -743,174 +780,98 @@ body {
 		<div>
 			<!-- 배너 자동 슬라이드 -->
 			<script>
-  
 document.addEventListener("DOMContentLoaded", () => {
-  
   let index = 0;
-  
   const images = document.querySelectorAll('.banner img');
-  
-  if (images.length === 0) return;
-  
-  setInterval(() => {
-  
-    images.forEach((img, i) => {
-  
-      img.classList.remove('active');
-  
-      if (i === index) img.classList.add('active');
-  
-    });
-  
-    index = (index + 1) % images.length;
-  
-  }, 3000);
-  
+  if (images.length > 0) {
+    setInterval(() => {
+      images.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) img.classList.add('active');
+      });
+      index = (index + 1) % images.length;
+    }, 3000);
+  }
 
-  
   const insuranceBtns = document.querySelectorAll('#insurance-group .btn-option');
-  
   const carBtns = document.querySelectorAll('#car-group .btn-option');
-  
   const carItems = document.querySelectorAll('.car-item');
-  
   const priceBoxes = document.querySelectorAll('.car-price');
-  
-
-  
   const rentalDays = parseInt(document.getElementById('rentalDays').value);
-  
-
-  
-  const baseRate = 24500;
-  
+  const baseRate = 0;
+  const formatted = price.toLocaleString('ko-KR') + '원';
   const extraRates = {
-  
     '면책미포함': 0,
-  
     '완전면책포함': 5000,
-  
     '슈퍼면책포함': 19500
-  
   };
-  
 
-  
-  let selectedInsurance = document.querySelector('#insurance-group .btn-option.active').textContent.trim();
-  
-  let selectedCar = document.querySelector('#car-group .btn-option.active').textContent.trim();
-  
+  let selectedInsurance = document.querySelector('#insurance-group .btn-option.active')?.textContent.trim() || '면책미포함';
+  let selectedCar = document.querySelector('#car-group .btn-option.active')?.textContent.trim() || '경형';
 
-  
   function updatePrice() {
-  
     const extra = extraRates[selectedInsurance] || 0;
-  
     const price = rentalDays * (baseRate + extra);
-  
     const formatted = price.toLocaleString('ko-KR') + '원';
-  
     priceBoxes.forEach(p => p.textContent = formatted);
-  
   }
-  
 
-  
   function filterCars() {
-  
     carItems.forEach(item => {
-  
       const insu = item.dataset.insurance;
-  
-      const carData = item.dataset.car.split(" "); // 여러 car 속성 대응
-  
-
-  
+      const carData = item.dataset.car.split(" ");
       const insuranceMatch = (insu === selectedInsurance || insu === "all");
-  
       const carMatch = carData.includes(selectedCar) || item.dataset.car === "all";
-  
-
-  
       const shouldShow = insuranceMatch && carMatch;
-  
       item.style.display = shouldShow ? "flex" : "none";
-  
 
-  
       if (shouldShow) {
-  
         const noteEl = item.querySelector('.car-note');
-  
         if (noteEl) {
-  
-          if (selectedInsurance === '면책미포함') {
-  
-            noteEl.textContent = '차량손해면책 미가입';
-  
-          } else if (selectedInsurance === '완전면책포함') {
-  
-            noteEl.textContent = '완전면책 포함';
-  
-          } else if (selectedInsurance === '슈퍼면책포함') {
-  
-            noteEl.textContent = '슈퍼면책 포함';
-  
-          }
-  
+          noteEl.textContent = selectedInsurance === '면책미포함' ? '차량손해면책 미가입' :
+                               selectedInsurance === '완전면책포함' ? '완전면책 포함' :
+                               '슈퍼면책 포함';
         }
-  
       }
-  
     });
-  
     updatePrice();
-  
   }
-  
 
-  
   insuranceBtns.forEach(btn => {
-  
     btn.addEventListener('click', () => {
-  
       insuranceBtns.forEach(b => b.classList.remove('active'));
-  
       btn.classList.add('active');
-  
       selectedInsurance = btn.textContent.trim();
-  
       filterCars();
-  
     });
-  
   });
-  
 
-  
   carBtns.forEach(btn => {
-  
     btn.addEventListener('click', () => {
-  
       carBtns.forEach(b => b.classList.remove('active'));
-  
       btn.classList.add('active');
-  
       selectedCar = btn.textContent.trim();
-  
       filterCars();
-  
     });
-  
   });
-  
 
-  
+  // 차량 이름 클릭 시 carName 값 세팅 후 폼 전송
+  const carNameInput = document.getElementById('carNameInput');
+  const carNameLinks = document.querySelectorAll('.car-info h3 a');
+
+  carNameLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const text = link.textContent.replace('▷', '').trim();
+      carNameInput.value = text;
+      document.getElementById('bookingForm').submit();
+    });
+  });
+
   filterCars(); // 초기 실행
-  
 });
-  
 </script>
+
 </body>
 </html>
 
