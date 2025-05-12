@@ -44,7 +44,6 @@ public class BookingController {
         dto.setRETURN_TIME(request.getParameter("tTime"));
         dto.setINSURANCE(request.getParameter("insurance"));
         dto.setCAR_TYPE(request.getParameter("car"));
-        dto.setCarName(request.getParameter("carName"));
 
         // 렌트 일수 계산
         LocalDate start = LocalDate.of(dto.getRENTAL_YEAR(), dto.getRENTAL_MONTH(), dto.getRENTAL_DAY());

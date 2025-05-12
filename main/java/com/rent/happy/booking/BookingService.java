@@ -8,7 +8,7 @@ public interface BookingService {
 
     void noneNewDB(BookingDTO dto);
 
-	int calculateTotalPrice(String carname, int rental_DAYS, String insurance);
+	int calculateTotalPrice(String string, int rental_DAYS, String insurance);
 
 
 }

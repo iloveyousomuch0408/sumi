@@ -423,12 +423,16 @@ form {
 
 		<!-- 검색 버튼 -->
 		<form method="post" id="bookingForm">
-			<input type="hidden" name="rYear" /> <input type="hidden"
-				name="rMonth" /> <input type="hidden" name="rDay" /> <input
-				type="hidden" name="rTime" /> <input type="hidden" name="tYear" />
-			<input type="hidden" name="tMonth" /> <input type="hidden"
-				name="tDay" /> <input type="hidden" name="tTime" /> <input
-				type="hidden" name="insurance" /> <input type="hidden" name="car" />
+			<input type="hidden" name="rYear" />
+			 <input type="hidden"name="rMonth" /> 
+			 <input type="hidden" name="rDay" />
+			 <input type="hidden" name="rTime" />
+			 <input type="hidden" name="tYear" />
+			<input type="hidden" name="tMonth" />
+			<input type="hidden"name="tDay" />
+			<input type="hidden" name="tTime" /> 
+			<input type="hidden" name="insurance" />
+			 <input type="hidden" name="car" />
 			<button type="submit" class="search-btn">검색</button>
 		</form>
 	</div>
